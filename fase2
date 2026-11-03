@@ -1,0 +1,24 @@
+# pacotes
+paru -S limine-mkinitcpio-hook limine-snapper-sync
+sudo pacman -S snap-pac
+
+# configs versionadas
+sudo cp etc/default/limine /etc/default/limine
+sudo cp etc/limine-snapper-sync.conf /etc/limine-snapper-sync.conf
+sudo mkdir -p /etc/mkinitcpio.conf.d
+sudo cp etc/mkinitcpio.conf.d/10-btrfs-overlayfs.conf /etc/mkinitcpio.conf.d/
+sudo mkinitcpio -P
+
+# gerar o limine.conf
+sudo cp /boot/limine.conf ~/limine.conf.manual.bak
+sudo limine-update
+cat /boot/limine.conf
+
+# snapshots
+sudo systemctl enable --now limine-snapper-sync.service
+sudo limine-snapper-sync
+
+# kernel cachyos
+paru -S linux-cachyos-bore
+sudo limine-update
+sudo limine-snapper-sync

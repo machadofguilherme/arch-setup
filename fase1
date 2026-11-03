@@ -1,0 +1,13 @@
+# snapper
+install -m 640 -o root -g root etc/snapper/configs/root /etc/snapper/configs/root
+chmod 750 /.snapshots
+systemctl enable snapper-cleanup.timer
+
+# limine
+mkdir -p /boot/EFI/limine /boot/EFI/BOOT /etc/pacman.d/hooks
+cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/
+cp /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/
+cp etc/pacman.d/hooks/* /etc/pacman.d/hooks/
+cp boot/limine.conf /boot/limine.conf
+efibootmgr --create --disk /dev/nvme0n1 --part 1 \
+  --label "Limine" --loader '\EFI\limine\BOOTX64.EFI' --unicode
