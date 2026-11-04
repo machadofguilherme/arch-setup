@@ -1,5 +1,5 @@
 TARGET_OS_NAME="Arch Linux"
 ESP_PATH="/boot"
-KERNEL_CMDLINE[default]="root=UUID=<UUID-DO-BTRFS> rootflags=subvol=@ rw quiet"
+KERNEL_CMDLINE[default]="root=UUID=<UUID-DO-BTRFS> rootflags=subvol=@root rw quiet"
 ENABLE_UKI=no
 ENABLE_LIMINE_FALLBACK=yes

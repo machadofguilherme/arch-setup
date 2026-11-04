@@ -7,4 +7,4 @@ Target = limine
 [Action]
 Description = Copia o Limine para a ESP.
 When = PostTransaction
-Exec = /bin/sh -c 'cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/ && cp /usr/share/limine/BOOTX64.EFI /boot/EFI/BOOT/'
+Exec = /bin/sh -c 'cp /usr/share/limine/BOOTX64.EFI /boot/EFI/limine/'

@@ -1,5 +1,5 @@
 @root: /
 @home: /home
-@var_log: /var/log
-@var_cache: /var/cache
+@log: /var/log
+@cache: /var/cache
 @snapshots: .snapshots
