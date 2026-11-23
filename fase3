@@ -2,6 +2,7 @@
 sudo pacman -S zram-generator
 sudo cp etc/sysctl.d/99-gaming.conf /etc/sysctl.d/
 sudo cp -r etc/systemd/{coredump.conf.d,system.conf.d,zram-generator.conf} /etc/systemd
+sudo cp -r etc/NetworkManager/conf.d/ /etc/NetworkManager/
 sudo systemctl daemon-reload
 sudo systemctl start systemd-zram-setup@zram0.service
 cp -r home/guilherme/.config/fish/functions/ ~/.config/fish/
